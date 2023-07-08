@@ -124,6 +124,9 @@ let slideDatas = [
   },
 ];
 export default function Home({ Component, pageProps }) {
+  function a(){
+    alert(123)
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <section className="mt-5">
@@ -138,7 +141,7 @@ export default function Home({ Component, pageProps }) {
       </section>
       <section className="w-full px-5">
         <div className="justify-end hidden sm:flex">
-          <button type="button" className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button type="button" onClick={a} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
             <img
               className="w-5 h-5 origin-center -rotate-90"
               src={process.env.BASE_PATH+"/images/arrow.svg"}
