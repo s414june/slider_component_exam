@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import SlideCard from "../components/slidecard";
 
@@ -124,8 +126,12 @@ let slideDatas = [
   },
 ];
 export default function Home({ Component, pageProps }) {
-  function a(){
-    alert(123)
+  function scrollCard(addCardCount){
+    let leftOffset = document.querySelector(".card:first-child").offsetLeft;
+    console.log(leftOffset)
+    let cardOutside = document.querySelector(".card-outside");
+    let card = cardOutside.querySelector(".card");
+    cardOutside.scrollLeft+=cardOutside.clientWidth*addCardCount;
   }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
@@ -141,14 +147,14 @@ export default function Home({ Component, pageProps }) {
       </section>
       <section className="w-full px-5">
         <div className="justify-end hidden sm:flex">
-          <button type="button" onClick={a} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button type="button" onClick={()=>scrollCard(-1)} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
             <img
               className="w-5 h-5 origin-center -rotate-90"
               src={process.env.BASE_PATH+"/images/arrow.svg"}
               alt="arrow-left"
             />
           </button>
-          <button type="button" className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button type="button" onClick={()=>scrollCard(1)} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out">
             <img
               className="w-5 h-5 origin-center rotate-90"
               src={process.env.BASE_PATH+"/images/arrow.svg"}
