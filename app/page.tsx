@@ -133,8 +133,12 @@ export default function Home({ Component, pageProps }) {
     let arrowLeft = document.querySelector(".arrow-left");
     let arrowRight = document.querySelector(".arrow-right");
     setArrowStatus();
+    setMobileVh();
     cardOutside.addEventListener("scrollend", () => {
       setArrowStatus();
+    });
+    window.addEventListener("resize", function () {
+      setMobileVh;
     });
     function setArrowStatus() {
       arrowLeft.disabled = cardOutside.scrollLeft > 0 ? false : true;
@@ -145,6 +149,10 @@ export default function Home({ Component, pageProps }) {
       arrowRight.disabled =
         cardOutside.scrollLeft < lastScrollLeft ? false : true;
     }
+    function setMobileVh() {
+      let windowsVH = Math.floor(window.innerHeight * 0.01);
+      document.documentElement.style.setProperty("--vh", windowsVH + "px");
+    }
   }, []);
   function scrollCard(addCardCount) {
     let cardOutside = document.querySelector(".card-outside");
@@ -153,7 +161,7 @@ export default function Home({ Component, pageProps }) {
   }
   return (
     <main className="min-h-screen">
-      <section className="mt-5">
+      <section className="pt-5">
         <div className="relative flex flex-col place-items-center">
           <h1 className="text-3xl font-bold font-gotham-sans">
             Best Seller Gaming PC

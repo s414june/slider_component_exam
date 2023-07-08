@@ -31,6 +31,13 @@ body {
     outline: none;
 }
 
+main{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .card-outside {
     scroll-behavior: smooth;
 }
