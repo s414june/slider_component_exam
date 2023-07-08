@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #ffffff;
+    font-family: gotham, sans-serif;
+    overflow-x: hidden;
+    font-size: .9rem;
+}
+
+.card{
+  color: rgb(55 65 81);
+}
+
+.card-outside::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.card-outside::-webkit-scrollbar-thumb {
+  background-color: rgb(209, 213, 219);
+  border-radius: 500px;
+}
+
+/* @media screen and (min-width: 1024px) {
+  body{
+    font-size: .9rem;
+  }
+} */
