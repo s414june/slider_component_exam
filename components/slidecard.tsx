@@ -25,7 +25,7 @@ export default function SlideCard({ data }) {
           <div className="flex flex-col items-center justify-center h-52">
             {data.image_src ? (
               <img className="w-48 max-w-full"
-                src={process.env.BASE_PATH+image_src}
+                src={image_src}
                 alt={data.name}
               />
             ) : (
@@ -68,7 +68,7 @@ export default function SlideCard({ data }) {
                 </p>
                 <img
                   className="w-10 mx-1 inline"
-                  src={process.env.BASE_PATH+"/images/icon-affirm.svg"}
+                  src="/images/icon-affirm.svg"
                   alt="affirm.com"
                 />
               </div>

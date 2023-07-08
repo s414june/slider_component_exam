@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+let BASE_PATH = "/slider_component_exam";
 const nextConfig = {
   typescript: {
     // !! WARN !!
@@ -7,12 +9,13 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  output: 'export',
+  output: "export",
   env: {
-    BASE_PATH: '/slider_component_exam',
+    BASE_PATH: BASE_PATH,
   },
-  basePath: '/slider_component_exam',
-  distDir:'docs'
-}
+  basePath: isProd ? BASE_PATH : "",
+  assetPrefix: isProd ? BASE_PATH : "",
+  distDir: "docs",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
