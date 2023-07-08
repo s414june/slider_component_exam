@@ -19,7 +19,7 @@ export default function SlideCard({ data }) {
     <div className="xl:min-w-1/4 lg:min-w-[calc(100%/3)] sm:min-w-1/2 min-w-full flex relative card">
       <div className="p-3 grow flex max-w-full">
         <div className="flex flex-col grow pt-5 relative w-full max-w-lg rounded-xl overflow-hidden shadow-lg bg-white">
-          <span className="text-gray-400 top-0 rounded-full border border-gray-400 absolute left-0 px-2 py-0.5 mx-4 my-3 text-[0.1rem] font-medium">
+          <span className="text-gray-400 top-0 rounded-full border border-gray-400 absolute left-0 px-2 py-0.5 mx-4 my-3 text-[0.8em] font-medium">
             {typeWords}
           </span>
           <div className="flex flex-col items-center justify-center h-52">
