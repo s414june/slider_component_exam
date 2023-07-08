@@ -25,7 +25,7 @@ export default function SlideCard({ data }) {
           <div className="flex flex-col items-center justify-center h-52">
             {data.image_src ? (
               <img className="w-48 max-w-full"
-                src={image_src}
+                src={process.env.BASE_PATH+image_src}
                 alt={data.name}
               />
             ) : (
@@ -68,7 +68,7 @@ export default function SlideCard({ data }) {
                 </p>
                 <img
                   className="w-10 mx-1 inline"
-                  src="/images/icon-affirm.svg"
+                  src={process.env.BASE_PATH+"/images/icon-affirm.svg"}
                   alt="affirm.com"
                 />
               </div>
@@ -78,7 +78,7 @@ export default function SlideCard({ data }) {
                   <p>{data.delivery} </p>
                 </div>
                 <div className="flex items-center mb-5">
-                  <button className="inline-block border rounded-full px-3 py-1 text-red-600 border-red-600 hover:bg-red-600 hover:text-white transition ease-in-out">
+                  <button type="button" className="inline-block border rounded-full px-3 py-1 text-red-600 border-red-600 hover:bg-red-600 hover:text-white transition ease-in-out">
                     {buyWord}
                   </button>
                 </div>

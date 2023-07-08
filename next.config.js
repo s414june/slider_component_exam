@@ -11,7 +11,7 @@ const nextConfig = {
   },
   output: "export",
   env: {
-    BASE_PATH: BASE_PATH,
+    BASE_PATH: isProd ? BASE_PATH : "",
   },
   basePath: isProd ? BASE_PATH : "",
   assetPrefix: isProd ? BASE_PATH : "",

@@ -138,17 +138,17 @@ export default function Home({ Component, pageProps }) {
       </section>
       <section className="w-full px-5">
         <div className="justify-end hidden sm:flex">
-          <button className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button type="button" className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
             <img
               className="w-5 h-5 origin-center -rotate-90"
-              src="/images/arrow.svg"
+              src={process.env.BASE_PATH+"/images/arrow.svg"}
               alt="arrow-left"
             />
           </button>
-          <button className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button type="button" className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out">
             <img
               className="w-5 h-5 origin-center rotate-90"
-              src="/images/arrow.svg"
+              src={process.env.BASE_PATH+"/images/arrow.svg"}
               alt="arrow-right"
             />
           </button>
