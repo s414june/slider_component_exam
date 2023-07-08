@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import SlideCard from "../components/slidecard";
+import { useEffect } from "react";
 
 let slideDatas = [
   {
@@ -17,7 +18,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_1.webp"
+    image_src: "/images/pc/pc_1.webp",
   },
   {
     name: "Gaming RDY IWRG209",
@@ -32,7 +33,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_2.webp"
+    image_src: "/images/pc/pc_2.webp",
   },
   {
     name: "Intel 13th Gen Elite Daily Deal",
@@ -47,7 +48,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_3.webp"
+    image_src: "/images/pc/pc_3.webp",
   },
   {
     name: "AMD Ryzen 9 Extreme Gaming Daily Deal",
@@ -62,7 +63,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_4.webp"
+    image_src: "/images/pc/pc_4.webp",
   },
   {
     name: "Gaming RDY SLHBG224",
@@ -77,7 +78,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_5.webp"
+    image_src: "/images/pc/pc_5.webp",
   },
   {
     name: "Gaming RDY SLMRR214",
@@ -92,7 +93,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_6.webp"
+    image_src: "/images/pc/pc_6.webp",
   },
   {
     name: "Intel 13th Gen Gaming PC Daily Deal",
@@ -107,7 +108,7 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_7.webp"
+    image_src: "/images/pc/pc_7.webp",
   },
   {
     name: "AMD Ryzen Power Up Daily Deal",
@@ -122,19 +123,36 @@ let slideDatas = [
     affirm_mo: 87,
     shipping: "Free Shipping",
     delivery: "Delivery By Tuesday, Jul 11",
-    image_src:"/images/pc/pc_8.webp"
+    image_src: "/images/pc/pc_8.webp",
   },
 ];
 export default function Home({ Component, pageProps }) {
-  function scrollCard(addCardCount){
-    let leftOffset = document.querySelector(".card:first-child").offsetLeft;
-    console.log(leftOffset)
+  useEffect(() => {
     let cardOutside = document.querySelector(".card-outside");
-    let card = cardOutside.querySelector(".card");
-    cardOutside.scrollLeft+=cardOutside.clientWidth*addCardCount;
+    let cards = cardOutside.querySelectorAll(".card");
+    let arrowLeft = document.querySelector(".arrow-left");
+    let arrowRight = document.querySelector(".arrow-right");
+    setArrowStatus();
+    cardOutside.addEventListener("scrollend", () => {
+      setArrowStatus();
+    });
+    function setArrowStatus() {
+      arrowLeft.disabled = cardOutside.scrollLeft > 0 ? false : true;
+      let lastScrollLeft = 0 - cardOutside.clientWidth - 2;
+      cards.forEach((card) => {
+        lastScrollLeft += card.clientWidth;
+      });
+      arrowRight.disabled =
+        cardOutside.scrollLeft < lastScrollLeft ? false : true;
+    }
+  }, []);
+  function scrollCard(addCardCount) {
+    let cardOutside = document.querySelector(".card-outside");
+    let cards = cardOutside.querySelectorAll(".card");
+    cardOutside.scrollLeft += cardOutside.clientWidth * addCardCount;
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="min-h-screen">
       <section className="mt-5">
         <div className="relative flex flex-col place-items-center">
           <h1 className="text-3xl font-bold font-gotham-sans">
@@ -147,25 +165,36 @@ export default function Home({ Component, pageProps }) {
       </section>
       <section className="w-full px-5">
         <div className="justify-end hidden sm:flex">
-          <button type="button" onClick={()=>scrollCard(-1)} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button
+            type="button"
+            onClick={() => scrollCard(-1)}
+            className="arrow arrow-left w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out"
+          >
             <img
               className="w-5 h-5 origin-center -rotate-90"
-              src={process.env.BASE_PATH+"/images/arrow.svg"}
+              src={process.env.BASE_PATH + "/images/arrow.svg"}
               alt="arrow-left"
             />
           </button>
-          <button type="button" onClick={()=>scrollCard(1)} className="w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out">
+          <button
+            type="button"
+            onClick={() => scrollCard(1)}
+            className="arrow arrow-right w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out"
+          >
             <img
               className="w-5 h-5 origin-center rotate-90"
-              src={process.env.BASE_PATH+"/images/arrow.svg"}
+              src={process.env.BASE_PATH + "/images/arrow.svg"}
               alt="arrow-right"
             />
           </button>
         </div>
         <div className="w-full relative">
-          <div className="flex justify-items-center overflow-x-auto relative card-outside">
-            {slideDatas.map((slideData,i) => (
-              <SlideCard data={slideData} key={i}></SlideCard>
+          <div className="overflow-x-auto card-outside whitespace-nowrap relative">
+            {slideDatas.map((slideData, i) => (
+              <SlideCard
+                data={slideData}
+                key={i}
+              ></SlideCard>
             ))}
           </div>
         </div>

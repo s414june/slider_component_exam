@@ -1,10 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
 }
+
+
 /* 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -13,32 +14,42 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #ffffff;
+    color: rgb(var(--foreground-rgb));
+    background: #ffffff;
     font-family: gotham, sans-serif;
     overflow-x: hidden;
     font-size: .9rem;
 }
 
-.card-outside{
-  scroll-behavior: smooth;
+:focus {
+    outline: none;
 }
 
-.card{
-  color: rgb(55 65 81);
+.card-outside {
+    scroll-behavior: smooth;
+}
+
+.card {
+    color: rgb(55 65 81);
+}
+
+.arrow:disabled>img{
+  filter: opacity(0.35);
 }
 
 @media screen and (min-width: 640px) {
-  .card-outside::-webkit-scrollbar {
-    height: 6px;
-    width: 6px;
-  }
-  .card-outside::-webkit-scrollbar-thumb {
-    background-color: rgb(209, 213, 219);
-    border-radius: 500px;
-  }
+    .card-outside::-webkit-scrollbar {
+        height: 6px;
+        width: 6px;
+    }
+    .card-outside::-webkit-scrollbar-thumb {
+        background-color: rgb(209, 213, 219);
+        border-radius: 500px;
+    }
 }
