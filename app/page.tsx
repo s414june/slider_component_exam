@@ -141,13 +141,14 @@ export default function Home({ Component, pageProps }) {
       setMobileVh;
     });
     function setArrowStatus() {
+      let cardOutsideLeft = cardOutside.scrollLeft;
       arrowLeft.disabled = cardOutside.scrollLeft > 0 ? false : true;
-      let lastScrollLeft = 0 - cardOutside.clientWidth - 2;
+      let lastScrollLeft = 0 - cardOutside.clientWidth;
       cards.forEach((card) => {
         lastScrollLeft += card.clientWidth;
       });
-      arrowRight.disabled =
-        cardOutside.scrollLeft < lastScrollLeft ? false : true;
+      cardOutsideLeft = Math.round(cardOutsideLeft / 10) * 10; //四捨五入到二位數
+      arrowRight.disabled = cardOutsideLeft < lastScrollLeft ? false : true;
     }
     function setMobileVh() {
       let windowsVH = Math.floor(window.innerHeight * 0.01);

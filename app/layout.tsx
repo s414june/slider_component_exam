@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Best Seller Gaming PC',
   description: 'Best Seller Gaming PC-Prebuilt & Custom',
+  openGraph:{
+    images:process.env.BASE_PATH + '/images/pc/pc_1.webp'
+  }
 }
 
 export default function RootLayout({

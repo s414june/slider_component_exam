@@ -16,9 +16,9 @@ export default function SlideCard({ data }) {
     buyWord = "Customize";
   }
   return (
-    <div className="xl:w-1/4 lg:w-[calc(100%/3)] sm:w-1/2 w-full relative card inline-block">
-      <div className="p-3 grow flex max-w-full">
-        <div className="flex flex-col grow pt-5 relative w-full max-w-lg rounded-xl overflow-hidden shadow-lg bg-white">
+    <div className="xl:w-1/4 lg:w-[calc(100%/3)] sm:w-1/2 w-full relative card inline-block max-w-[25rem] min-w-[20rem]">
+      <div className="p-3 flex max-w-full">
+        <div className="flex flex-col grow pt-5 relative w-full rounded-xl overflow-hidden shadow-lg bg-white">
           <span className="type-span text-gray-400 top-0 rounded-full border border-gray-400 absolute left-0 px-2 py-0.5 mx-4 my-3 text-[0.8em] font-medium">
             {typeWords}
           </span>
