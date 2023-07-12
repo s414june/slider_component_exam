@@ -58,10 +58,10 @@ export default function Home({ Component, pageProps }) {
           <button
             type="button"
             onClick={() => scrollCard(-1)}
-            className="arrow arrow-left w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out"
+            className="arrow arrow-left w-10 h-10 shadow-lg bg-white flex justify-center items-center rounded disabled:invert-0 hover:filter hover:invert transition ease-in-out"
           >
             <img
-              className="w-5 h-5 origin-center -rotate-90"
+              className="w-7 h-7 origin-center -rotate-90"
               src={process.env.BASE_PATH + "/images/arrow.svg"}
               alt="arrow-left"
             />
@@ -69,10 +69,10 @@ export default function Home({ Component, pageProps }) {
           <button
             type="button"
             onClick={() => scrollCard(1)}
-            className="arrow arrow-right w-9 h-9 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out"
+            className="arrow arrow-right w-10 h-10 shadow-lg bg-white flex justify-center items-center rounded ml-2 disabled:invert-0 hover:filter hover:invert transition ease-in-out"
           >
             <img
-              className="w-5 h-5 origin-center rotate-90"
+              className="w-7 h-7 origin-center rotate-90"
               src={process.env.BASE_PATH + "/images/arrow.svg"}
               alt="arrow-right"
             />

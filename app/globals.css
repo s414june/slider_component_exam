@@ -52,21 +52,7 @@ main {
 
 @media screen and (min-width: 640px) {
     html {
-        font-size: 15px;
-    }
-    .card-outside::-webkit-scrollbar {
-        height: 6px;
-        width: 6px;
-    }
-    .card-outside::-webkit-scrollbar-thumb {
-        background-color: rgb(209, 213, 219);
-        border-radius: 500px;
-    }
-}
-
-@media screen and (min-width: 640px) {
-    html {
-        font-size: 15px;
+        font-size: 14px;
     }
     .card-outside::-webkit-scrollbar {
         height: 6px;
